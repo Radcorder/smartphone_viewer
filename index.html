@@ -12,33 +12,33 @@
     <script src="https://cdn.jsdelivr.net/npm/cornerstone-tools@4.22.1/dist/cornerstoneTools.min.js"></script>
 </head>
 <body>
-    <div id="header">
-        <div class="header-top">
-            <select id="caseSelector"></select>
-            <button id="toggleROI" class="btn-mobile">ROI: ON</button>
-        </div>
-        <div class="header-bottom">
-            <div class="ctrl-item">
-                <label>Plan</label>
-                <select id="selDoseMain"></select>
+    <div id="app-wrapper"> <div id="header">
+            <div class="header-top">
+                <select id="caseSelector"></select>
+                <button id="toggleROI" class="btn-mobile">ROI: ON</button>
             </div>
-            <div class="ctrl-item" style="flex-grow: 1;">
-                <label>Opacity</label>
-                <input type="range" id="doseOpacity" min="0" max="1" step="0.1" value="0.7">
+            <div class="header-bottom">
+                <div class="ctrl-item">
+                    <label>Plan</label>
+                    <select id="selDoseMain"></select>
+                </div>
+                <div class="ctrl-item" style="flex-grow: 1;">
+                    <label>Opacity</label>
+                    <input type="range" id="doseOpacity" min="0" max="1" step="0.1" value="0.7">
+                </div>
             </div>
+            <div id="sliceInfo">Slice: 0 / 0</div>
         </div>
-        <div id="sliceInfo">Slice: 0 / 0</div>
+
+        <div id="loadingBarContainer"><div id="loadingBar"></div></div>
+
+        <div id="mainContainer">
+            <div id="dicomMain" class="dicom-image"></div>
+            <canvas id="doseCanvasMain" class="dose-canvas"></canvas>
+            <canvas id="structCanvasMain" class="struct-canvas"></canvas>
+            <div id="doseReadout">0.00 Gy</div>
+        </div>
     </div>
-
-    <div id="loadingBarContainer"><div id="loadingBar"></div></div>
-
-    <div id="mainContainer">
-        <div id="dicomMain" class="dicom-image"></div>
-        <canvas id="doseCanvasMain" class="dose-canvas"></canvas>
-        <canvas id="structCanvasMain" class="struct-canvas"></canvas>
-        <div id="doseReadout">0.00 Gy</div>
-    </div>
-
     <script src="./static/script.js"></script>
 </body>
 </html>
