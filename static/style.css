@@ -5,54 +5,49 @@ body {
 }
 
 #app-wrapper {
-    width: 100%;
-    max-width: 600px; /* PCでの見栄えを考慮して少し広げました */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: #000;
+    width: 100%; max-width: 600px; height: 100%;
+    display: flex; flex-direction: column; background: #000;
 }
 
 #header { 
     background: #1a1a1a; padding: 10px; border-bottom: 1px solid #333; 
     display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;
-    z-index: 110;
 }
 
-.header-top, .header-bottom { display: flex; gap: 10px; align-items: center; }
+.header-top, .header-mid, .header-bottom { display: flex; gap: 8px; align-items: center; }
 
 select { 
     background: #333; color: #fff; border: 1px solid #555; 
-    padding: 8px; font-size: 16px; border-radius: 5px; flex-grow: 1;
+    padding: 8px; font-size: 14px; border-radius: 5px; flex-grow: 1;
 }
 
 .btn-mobile {
     background: #444; color: #fff; border: 1px solid #666;
-    padding: 8px 12px; font-size: 14px; border-radius: 5px;
+    padding: 8px 12px; font-size: 14px; border-radius: 5px; white-space: nowrap;
 }
 
+.btn-reset { background: #334d66; border-color: #4c7799; }
+
 .ctrl-item { display: flex; flex-direction: column; gap: 2px; }
+.dose-range-box { width: 100%; }
+
 label { font-size: 10px; color: #888; text-transform: uppercase; }
 
-#sliceInfo { font-size: 14px; text-align: center; color: #4CAF50; font-weight: bold; padding: 2px 0; }
+input[type=range] { height: 25px; width: 100%; margin: 2px 0; }
+
+#sliceInfo { font-size: 13px; text-align: center; color: #4CAF50; font-weight: bold; }
+
+#loadingBarContainer { width: 100%; height: 3px; background: #222; }
+#loadingBar { width: 0%; height: 100%; background: #4CAF50; transition: width 0.2s; }
 
 #mainContainer { 
     flex-grow: 1; position: relative; overflow: hidden;
-    touch-action: none; background: #000;
-    width: 100%;
+    touch-action: none; background: #000; width: 100%;
 }
 
-/* DICOMとCanvasを完全に重ねる */
 .dicom-image, .dose-canvas, .struct-canvas { 
     width: 100% !important; height: 100% !important; 
     position: absolute; top: 0; left: 0; 
 }
 .dose-canvas { z-index: 5; pointer-events: none; }
 .struct-canvas { z-index: 10; pointer-events: none; }
-
-#doseReadout {
-    position: absolute; bottom: 20px; left: 20px; z-index: 100;
-    background: rgba(0,0,0,0.7); padding: 8px 12px; border-radius: 5px;
-    color: #ffeb3b; font-family: monospace; font-size: 18px; pointer-events: none;
-    border: 1px solid #444;
-}
